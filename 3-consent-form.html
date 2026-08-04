@@ -118,6 +118,8 @@
           <label class="opt"><input type="checkbox" name="Medical conditions" value="Cardiac / heart disease"><span>Cardiac / heart disease</span></label>
           <label class="opt"><input type="checkbox" name="Medical conditions" value="Hypertension / high blood pressure"><span>High blood pressure</span></label>
           <label class="opt"><input type="checkbox" name="Medical conditions" value="Bleeding / clotting disorder"><span>Bleeding / clotting disorder</span></label>
+          <!-- Added from Jotford body form: explicit clotting item -->
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Blood clotting abnormalities"><span>Blood clotting abnormalities</span></label>
           <label class="opt"><input type="checkbox" name="Medical conditions" value="Immune-compromising condition"><span>Immune-compromising condition</span></label>
           <label class="opt"><input type="checkbox" name="Medical conditions" value="HIV / AIDS"><span>HIV / AIDS</span></label>
           <label class="opt"><input type="checkbox" name="Medical conditions" value="Hepatitis"><span>Hepatitis</span></label>
@@ -126,6 +128,18 @@
           <label class="opt"><input type="checkbox" name="Medical conditions" value="Herpes / frequent cold sores"><span>Herpes / cold sores</span></label>
           <label class="opt"><input type="checkbox" name="Medical conditions" value="Skin disease or skin lesions"><span>Skin disease / lesions</span></label>
           <label class="opt"><input type="checkbox" name="Medical conditions" value="Thyroid imbalance"><span>Thyroid imbalance</span></label>
+          <!-- Added from Jotform body form: further conditions it screens for -->
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Hormone imbalance"><span>Hormone imbalance</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Asthma"><span>Asthma</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Arthritis"><span>Arthritis</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Epilepsy / seizure disorder"><span>Epilepsy / seizure disorder</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Mental health condition / psychiatric disorder"><span>Mental health / psychiatric condition</span></label>
+          <!-- Neuromuscular conditions screened on the Jotform body form -->
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Parkinson's disease"><span>Parkinson's disease</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Myasthenia gravis"><span>Myasthenia gravis</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Multiple sclerosis (MS)"><span>Multiple sclerosis (MS)</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Lambert-Eaton syndrome"><span>Lambert-Eaton syndrome</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Amyotrophic lateral sclerosis (ALS)"><span>Amyotrophic lateral sclerosis (ALS)</span></label>
           <label class="opt"><input type="checkbox" name="Medical conditions" value="Any active infection"><span>Any active infection</span></label>
           <label class="opt"><input type="checkbox" name="Medical conditions" value="None of the above"><span>None of the above</span></label>
         </div><div class="err-msg">Please make a selection (tick the last box if none apply).</div></div>
@@ -147,12 +161,25 @@
           <label class="opt"><input type="checkbox" name="Allergies" value="Lidocaine / local anaesthetic"><span>Lidocaine / local anaesthetic</span></label>
           <label class="opt"><input type="checkbox" name="Allergies" value="Poly-L-lactic acid (PLLA)"><span>Poly-L-lactic acid (PLLA)</span></label>
           <label class="opt"><input type="checkbox" name="Allergies" value="Food"><span>Food</span></label>
+          <!-- Added from Jotform: it lists eggs separately -->
+          <label class="opt"><input type="checkbox" name="Allergies" value="Eggs"><span>Eggs</span></label>
+          <!-- Added from Jotform body form allergen list -->
+          <label class="opt"><input type="checkbox" name="Allergies" value="Animal protein"><span>Animal protein</span></label>
           <label class="opt"><input type="checkbox" name="Allergies" value="Latex"><span>Latex</span></label>
           <label class="opt"><input type="checkbox" name="Allergies" value="Aspirin"><span>Aspirin</span></label>
           <label class="opt"><input type="checkbox" name="Allergies" value="Penicillin / antibiotics"><span>Penicillin / antibiotics</span></label>
           <label class="opt"><input type="checkbox" name="Allergies" value="Antiseptics / cleansers"><span>Antiseptics / cleansers</span></label>
+          <label class="opt"><input type="checkbox" name="Allergies" value="Hydroquinone"><span>Hydroquinone</span></label>
+          <label class="opt"><input type="checkbox" name="Allergies" value="Hydrocortisone"><span>Hydrocortisone</span></label>
+          <label class="opt"><input type="checkbox" name="Allergies" value="Skin bleaching agents"><span>Skin bleaching agents</span></label>
           <label class="opt"><input type="checkbox" name="Allergies" value="None of the above"><span>None of the above</span></label>
         </div><div class="err-msg">Please make a selection.</div></div>
+      <!-- Explicit Yes/No allergy question mirrored from the Jotform -->
+      <div class="f" data-group><label class="q">Are you allergic to anything? <span class="req">*</span></label>
+        <div class="opts" data-min="1" data-single>
+          <label class="opt"><input type="checkbox" name="Any allergies" value="Yes"><span>Yes</span></label>
+          <label class="opt"><input type="checkbox" name="Any allergies" value="No"><span>No</span></label>
+        </div><div class="err-msg">Please choose one.</div></div>
       <div class="f"><label class="q">Please give details of any allergy ticked above</label><textarea name="Allergy details"></textarea></div>
     </div>
 
@@ -166,12 +193,28 @@
           <label class="opt"><input type="checkbox" name="Medications" value="Anti-inflammatories (ibuprofen, naproxen)"><span>Anti-inflammatories (ibuprofen / naproxen)</span></label>
           <label class="opt"><input type="checkbox" name="Medications" value="Immunosuppressant medication"><span>Immunosuppressant medication</span></label>
           <label class="opt"><input type="checkbox" name="Medications" value="Steroids"><span>Steroids</span></label>
+          <!-- Added from Jotform body form medication/supplement list -->
+          <label class="opt"><input type="checkbox" name="Medications" value="Hormones / HRT"><span>Hormones / HRT</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Birth control pills"><span>Birth control pills</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Anti-depressant medication"><span>Anti-depressant medication</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Mood-altering medication"><span>Mood-altering medication</span></label>
           <label class="opt"><input type="checkbox" name="Medications" value="Vitamin E"><span>Vitamin E</span></label>
           <label class="opt"><input type="checkbox" name="Medications" value="Fish oil / Omega 3"><span>Fish oil / Omega 3</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Fatty acids"><span>Fatty acids</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Flaxseed oil"><span>Flaxseed oil</span></label>
           <label class="opt"><input type="checkbox" name="Medications" value="Ginkgo biloba"><span>Ginkgo biloba</span></label>
           <label class="opt"><input type="checkbox" name="Medications" value="High-dose garlic / ginger / turmeric"><span>High-dose garlic / ginger / turmeric</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Cayenne"><span>Cayenne</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Licorice"><span>Licorice</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="CoQ10"><span>CoQ10</span></label>
           <label class="opt"><input type="checkbox" name="Medications" value="None of the above"><span>None of the above</span></label>
         </div><div class="err-msg">Please make a selection.</div></div>
+      <!-- Explicit Yes/No current-medication question mirrored from the Jotform -->
+      <div class="f" data-group><label class="q">Are you currently taking any medication? <span class="req">*</span></label>
+        <div class="opts" data-min="1" data-single>
+          <label class="opt"><input type="checkbox" name="Currently on medication" value="Yes"><span>Yes</span></label>
+          <label class="opt"><input type="checkbox" name="Currently on medication" value="No"><span>No</span></label>
+        </div><div class="err-msg">Please choose one.</div></div>
       <div class="f"><label class="q">Please list any other medications or supplements you take</label><textarea name="Other medications"></textarea></div>
     </div>
 
@@ -190,9 +233,35 @@
           <label class="opt"><input type="checkbox" name="Contraindications" value="Permanent filler already present in the area"><span>Permanent filler already in the area</span></label>
           <label class="opt"><input type="checkbox" name="Contraindications" value="Recent peeling, laser or ultrasound in the area"><span>Recent peel / laser / ultrasound in area</span></label>
           <label class="opt"><input type="checkbox" name="Contraindications" value="Recent or upcoming dental work or vaccination (within 2 weeks)"><span>Recent / upcoming dental work or vaccination</span></label>
+          <!-- Added from Jotform body form contraindications -->
+          <label class="opt"><input type="checkbox" name="Contraindications" value="Untreated infection: periodontitis, cellulitis, or a dental / ENT condition"><span>Untreated infection (periodontitis, cellulitis, dental / ENT)</span></label>
+          <label class="opt"><input type="checkbox" name="Contraindications" value="Complications after surgery within the past 5 years"><span>Complications after surgery in the past 5 years</span></label>
+          <label class="opt"><input type="checkbox" name="Contraindications" value="I am a competitive/professional sportsperson (potential for a positive doping test)"><span>Competitive sportsperson (possible positive doping test)</span></label>
           <label class="opt"><input type="checkbox" name="Contraindications" value="None of the above"><span>None of the above</span></label>
         </div><div class="err-msg">Please make a selection.</div></div>
       <div class="f"><label class="q">If you have any medical conditions, surgeries or previous treatments not listed above, please tell us here</label><textarea name="Other medical details"></textarea></div>
+    </div>
+
+    <!-- ===== 7b. Buttock implant screening (BODY-SPECIFIC) =====
+         Mirrors the Jotform body form: whether the client has buttock
+         implants and, if so, where they sit. If placement is unknown we
+         require a surgeon's letter before treating — a safety gate for
+         body/buttock Sculptra. Only relevant when a buttock is treated. -->
+    <div class="card">
+      <div class="sec-h"><span class="sec-n">7b</span><h2 class="sec-t">Buttock implants (body / buttock clients)</h2></div>
+      <div class="sec-d">Complete this if you are having your buttocks treated. If you are only having facial or other body areas treated, tick "Not applicable".</div>
+      <div class="f" data-group><label class="q">Do you have buttock implants? <span class="req">*</span></label>
+        <div class="opts" data-min="1" data-single>
+          <label class="opt"><input type="checkbox" name="Buttock implants" value="Yes"><span>Yes</span></label>
+          <label class="opt"><input type="checkbox" name="Buttock implants" value="No"><span>No</span></label>
+          <label class="opt"><input type="checkbox" name="Buttock implants" value="Not applicable (not treating buttocks)"><span>Not applicable — I'm not having my buttocks treated</span></label>
+        </div><div class="err-msg">Please choose one.</div></div>
+      <div class="f" data-group><label class="q">If yes, where are the implants placed?<div class="hint">Please bring your surgeon's letter confirming the placement. If you don't know, treatment cannot go ahead until you provide it.</div></label>
+        <div class="opts" data-min="0" data-single>
+          <label class="opt"><input type="checkbox" name="Implant placement" value="Submuscular — implant beneath the gluteal muscle (gluteus maximus), placed in the upper quadrant, extending towards the outer and upper areas"><span><b>Submuscular</b> — beneath the gluteal muscle (gluteus maximus); upper quadrant, extending to the outer/upper areas.</span></label>
+          <label class="opt"><input type="checkbox" name="Implant placement" value="Subfascial — implant above the gluteal muscle but beneath the fascia, placed in the upper quadrant with projection towards the outer and upper areas"><span><b>Subfascial</b> — above the gluteal muscle but beneath the fascia; upper quadrant, projecting to the outer/upper areas.</span></label>
+          <label class="opt"><input type="checkbox" name="Implant placement" value="No idea — I will contact my surgeon for a letter confirming placement; I understand treatment will not be carried out without it"><span><b>No idea</b> — I'll get a letter from my surgeon confirming placement; I understand <b>treatment will not go ahead without it</b>.</span></label>
+        </div><div class="err-msg">Please choose one.</div></div>
     </div>
 
     <!-- ===== 8. Health declaration ===== -->
@@ -203,7 +272,15 @@
           <label class="opt"><input type="checkbox" name="Health declaration" value="I am not pregnant, trying to conceive, or breastfeeding."><span>I am not pregnant, trying to conceive, or breastfeeding.</span></label>
           <label class="opt"><input type="checkbox" name="Health declaration" value="I do not have an active infection, and I have not had (nor am due) dental work or a vaccination within about 2 weeks."><span>I do not have an active infection, and I have not had (nor am due) dental work or a vaccination within about 2 weeks.</span></label>
           <label class="opt"><input type="checkbox" name="Health declaration" value="I have disclosed any autoimmune condition, scarring tendency or history of nodules."><span>I have disclosed any autoimmune condition, scarring tendency or history of nodules.</span></label>
-        </div><div class="err-msg">Please confirm all three (or speak to your practitioner first).</div></div>
+          <!-- Added from Jotform "Pregnancy, allergies and disease" attestations -->
+          <label class="opt"><input type="checkbox" name="Health declaration" value="I do not have any major illness that would prevent me from receiving the treatment described above."><span>I do not have any major illness that would prevent me from receiving the treatment described above.</span></label>
+          <label class="opt"><input type="checkbox" name="Health declaration" value="I do not have multiple allergies or a high sensitivity to medications, including Lidocaine."><span>I do not have multiple allergies or a high sensitivity to medications, including Lidocaine.</span></label>
+        </div><div class="err-msg">Please confirm all statements (or speak to your practitioner first).</div></div>
+      <!-- Added from Jotform: "Right to discontinue treatment" acknowledgement -->
+      <div class="f" data-group><label class="q">Right to discontinue treatment <span class="req">*</span></label>
+        <div class="opts" data-min="1" data-single>
+          <label class="opt"><input type="checkbox" name="Right to discontinue" value="I acknowledge that I have the right to discontinue the treatment at any time."><span>I acknowledge that I have the <b>right to discontinue the treatment at any time</b>.</span></label>
+        </div><div class="err-msg">Please confirm to continue.</div></div>
     </div>
 
     <!-- ===== 9. Risks & complications ===== -->
