@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     STAGE 3 — SCULPTRA (PLLA) CONSENT & CONSULTATION FORM
+     Comprehensive combined consent for a COLLAGEN-STIMULATING
+     treatment given as a COURSE of sessions. Covers FACE vs BODY
+     (buttock) areas, the gradual-result / not-guaranteed disclaimer,
+     full medical history, and risks — with the Sculptra-specific
+     DELAYED-ONSET NODULE/PAPULE risk made prominent, plus the
+     "rule of 5s" massage requirement to reduce nodules, and a
+     vascular-occlusion / emergency card.
+     Runs on the shared engine (styles.css + pack.js): validates,
+     captures a signature, builds a signed PDF and posts to the
+     Google backend. Logs in the Sheet as "Sculptra Consent".
+
+     HUSNA — Sculptra is a COURSE treatment with a DELAYED-NODULE
+     risk. This wording is a thorough starting point — please verify
+     it against your INSURER and the EXACT approved product you use
+     (Sculptra / Lanluma) before going live.
+     ============================================================ -->
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sculptra — Consent &amp; Consultation | Layali Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head><body>
+<div class="wrap">
+  <header class="hero">
+    <img class="logo" src="logo.jpg" alt="Layali Clinic">
+    <span class="kicker">Sculptra · Consent &amp; Consultation</span>
+    <h1>Consent &amp; Consultation Form</h1>
+    <p class="sub">Please complete this before your appointment. Read every section carefully — your signature confirms you understand and agree to all of it. Sculptra is a <b>course</b> treatment and your result develops <b>gradually</b>.</p>
+  </header>
+
+  <!-- data-autoresponse below is the full email the client receives on submit (STEP 4) — no placeholders. -->
+  <form data-pack-form="Sculptra Consent" data-pdf-title="Sculptra — Consent &amp; Consultation" data-autoresponse="Thank you for completing your Sculptra consent form with Layali Clinic. We've received it and saved a copy to your record.&#10;&#10;Your treatment: Sculptra (poly-L-lactic acid collagen stimulator). Please remember Sculptra is a course treatment and your result builds gradually over weeks and months.&#10;&#10;Before your appointment, please READ your pre-care guide. After your treatment, please KEEP your aftercare guide — it includes your important massage instructions (the 'rule of 5s'), which help reduce the risk of lumps.&#10;&#10;Treatment Guide: https://husna3414-ui.github.io/layali-sculptra/1-treatment-guide.html&#10;Pre-Care Guide (read before): https://husna3414-ui.github.io/layali-sculptra/4-pre-care-guide.html&#10;Aftercare Guide (keep for after): https://husna3414-ui.github.io/layali-sculptra/6-aftercare-guide.html&#10;&#10;If anything about your health, medication or pregnancy status changes before your appointment, please contact us.&#10;&#10;Layali Clinic&#10;07787 708200&#10;info.lushlips@gmail.com&#10;442 Lea Bridge Road, Leyton, London E10 7DT&#10;&#10;— Layali Clinic" novalidate>
+
+    <!-- ===== 1. Patient details ===== -->
+    <div class="card">
+      <div class="sec-h"><span class="sec-n">1</span><h2 class="sec-t">Your details</h2></div>
+      <div class="row">
+        <div class="f"><label class="q">First name <span class="req">*</span></label><input type="text" name="First name" required></div>
+        <div class="f"><label class="q">Last name <span class="req">*</span></label><input type="text" name="Last name" required></div>
+      </div>
+      <div class="f"><label class="q">Mobile number <span class="req">*</span></label><input type="tel" name="Mobile number" required></div>
+      <div class="f"><label class="q">Email <span class="req">*</span><div class="hint">Your confirmation copy is sent here.</div></label><input type="email" name="Email" required></div>
+      <div class="f"><label class="q">Address <span class="req">*</span></label>
+        <input type="text" name="Street address" placeholder="Street address" required style="margin-bottom:10px">
+        <div class="row" style="margin-bottom:10px"><input type="text" name="City" placeholder="City" required><input type="text" name="Postcode" placeholder="Postal / Zip code" required></div>
+        <input type="text" name="Country" placeholder="Country" value="United Kingdom" required></div>
+      <div class="f"><label class="q">Date of birth <span class="req">*</span><div class="hint">You must be 18 or over.</div></label><input type="date" name="Date of birth" required></div>
+      <div class="f" data-group><label class="q">Age confirmation <span class="req">*</span></label>
+        <div class="opts" data-min="1" data-single>
+          <label class="opt"><input type="checkbox" name="Age confirmation" value="I confirm I am aged 18 or over"><span>I confirm that I am aged <b>18 or over</b>.</span></label>
+        </div><div class="err-msg">We can only treat clients aged 18 or over.</div></div>
+      <div class="row">
+        <div class="f"><label class="q">Emergency contact name <span class="req">*</span></label><input type="text" name="Emergency contact name" required></div>
+        <div class="f"><label class="q">Emergency contact number <span class="req">*</span></label><input type="tel" name="Emergency contact number" required></div>
+      </div>
+      <div class="f"><label class="q">GP name &amp; surgery</label><input type="text" name="GP details" placeholder="Optional"></div>
+    </div>
+
+    <!-- ===== 2. Area & goals ===== -->
+    <div class="card">
+      <div class="sec-h"><span class="sec-n">2</span><h2 class="sec-t">Area &amp; your goals</h2></div>
+      <div class="f" data-group><label class="q">Which type of area are you having treated? <span class="req">*</span><div class="hint">Technique, risks and aftercare differ between face and body.</div></label>
+        <div class="opts" data-min="1" data-single>
+          <label class="opt"><input type="checkbox" name="Area type" value="Face"><span><b>Face</b> (temples, cheeks, jawline, lower face)</span></label>
+          <label class="opt"><input type="checkbox" name="Area type" value="Body / Buttock"><span><b>Body / Buttock</b> (buttock lift, décolletage, thighs, arms)</span></label>
+          <label class="opt"><input type="checkbox" name="Area type" value="Both face and body"><span>Both face and body</span></label>
+        </div><div class="err-msg">Please choose one.</div></div>
+      <div class="f" data-group><label class="q">Which specific areas would you like treated? <span class="req">*</span><div class="hint">Tick all that apply.</div></label>
+        <div class="opts grid-opts" data-min="1">
+          <label class="opt"><input type="checkbox" name="Areas requested" value="Temples"><span>Temples</span></label>
+          <label class="opt"><input type="checkbox" name="Areas requested" value="Cheeks / mid-face"><span>Cheeks / mid-face</span></label>
+          <label class="opt"><input type="checkbox" name="Areas requested" value="Jawline / lower face"><span>Jawline / lower face</span></label>
+          <label class="opt"><input type="checkbox" name="Areas requested" value="Nasolabial folds / marionette lines"><span>Nasolabial / marionette</span></label>
+          <label class="opt"><input type="checkbox" name="Areas requested" value="Buttocks (non-surgical lift)"><span>Buttocks (non-surgical lift)</span></label>
+          <label class="opt"><input type="checkbox" name="Areas requested" value="Décolletage / chest"><span>Décolletage / chest</span></label>
+          <label class="opt"><input type="checkbox" name="Areas requested" value="Thighs / knees"><span>Thighs / knees</span></label>
+          <label class="opt"><input type="checkbox" name="Areas requested" value="Upper arms"><span>Upper arms</span></label>
+          <label class="opt"><input type="checkbox" name="Areas requested" value="Other"><span>Other</span></label>
+        </div><div class="err-msg">Please select at least one.</div></div>
+      <div class="f" data-group><label class="q">Have you had Sculptra or another collagen stimulator before? <span class="req">*</span></label>
+        <div class="opts" data-min="1" data-single>
+          <label class="opt"><input type="checkbox" name="Had collagen stimulator before" value="Yes"><span>Yes</span></label>
+          <label class="opt"><input type="checkbox" name="Had collagen stimulator before" value="No"><span>No</span></label>
+        </div><div class="err-msg">Please choose one.</div></div>
+      <div class="f"><label class="q">What are your main goals? <span class="req">*</span></label><textarea name="Main goals" required placeholder="e.g. restore cheek volume, firmer jawline, buttock shape, smoother chest skin"></textarea></div>
+      <div class="f"><label class="q">Upload a clear photo of the area (natural light, no filters)<div class="hint">Optional — helps your practitioner assess and plan safely.</div></label><input type="file" name="attachment" accept="image/*,.heic"></div>
+    </div>
+
+    <!-- ===== 3. Expectations disclaimer ===== -->
+    <div class="card prose">
+      <div class="sec-h"><span class="sec-n">3</span><h2 class="sec-t">What to expect — gradual result</h2></div>
+      <p>Sculptra is a <b>collagen-stimulating</b> treatment, not an instant filler. It works by prompting your body to build its own new collagen over time.</p>
+      <div class="mini avoid"><h4>Please understand before you proceed</h4><ul>
+        <li>Any plumpness in the first days is from fluid and <b>settles</b> — it is not your result.</li>
+        <li>Your result develops <b>gradually over 6–12 weeks</b> and builds across sessions.</li>
+        <li>Sculptra is a <b>course</b> — typically <b>2–4 sessions, 4–6 weeks apart</b> (body/buttock usually needs more).</li>
+        <li>Results <b>vary between individuals and are not guaranteed</b>.</li>
+        <li>Results are long-lasting (commonly up to ~2 years) but <b>not permanent</b>; top-ups maintain them.</li>
+      </ul></div>
+      <div class="f" data-group><div class="opts" data-min="1" data-single>
+        <label class="opt"><input type="checkbox" name="Expectations disclaimer" value="I understand Sculptra is a gradual collagen treatment given as a course, that results vary, are not guaranteed and are not permanent."><span>I understand Sculptra is a <b>gradual</b> collagen treatment given as a <b>course</b>, that results <b>vary, are not guaranteed and are temporary</b> (long-lasting but not permanent).</span></label>
+      </div><div class="err-msg">Please confirm to continue.</div></div>
+    </div>
+
+    <!-- ===== 4. Medical history ===== -->
+    <div class="card">
+      <div class="sec-h"><span class="sec-n">4</span><h2 class="sec-t">Medical history</h2></div>
+      <div class="f" data-group><label class="q">Do you have any of the following medical conditions? <span class="req">*</span><div class="hint">Tick all that apply. If none, tick the last box.</div></label>
+        <div class="opts grid-opts" data-min="1" data-none="None of the above">
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Autoimmune / connective tissue disease"><span>Autoimmune / connective tissue disease</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Diabetes"><span>Diabetes</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Cancer"><span>Cancer</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Cardiac / heart disease"><span>Cardiac / heart disease</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Hypertension / high blood pressure"><span>High blood pressure</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Bleeding / clotting disorder"><span>Bleeding / clotting disorder</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Immune-compromising condition"><span>Immune-compromising condition</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="HIV / AIDS"><span>HIV / AIDS</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Hepatitis"><span>Hepatitis</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Keloid or hypertrophic scarring"><span>Keloid / hypertrophic scarring</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="History of granulomas or nodules from injectables"><span>Granulomas / nodules from injectables</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Herpes / frequent cold sores"><span>Herpes / cold sores</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Skin disease or skin lesions"><span>Skin disease / lesions</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Thyroid imbalance"><span>Thyroid imbalance</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="Any active infection"><span>Any active infection</span></label>
+          <label class="opt"><input type="checkbox" name="Medical conditions" value="None of the above"><span>None of the above</span></label>
+        </div><div class="err-msg">Please make a selection (tick the last box if none apply).</div></div>
+
+      <div class="f" data-group><label class="q">Pregnancy &amp; hormonal status <span class="req">*</span><div class="hint">Tick any that apply.</div></label>
+        <div class="opts grid-opts" data-min="1" data-none="None of these apply to me">
+          <label class="opt"><input type="checkbox" name="Pregnancy/hormonal status" value="Pregnant or trying to get pregnant"><span>Pregnant / trying to conceive</span></label>
+          <label class="opt"><input type="checkbox" name="Pregnancy/hormonal status" value="Breastfeeding"><span>Breastfeeding</span></label>
+          <label class="opt"><input type="checkbox" name="Pregnancy/hormonal status" value="Using contraception"><span>Using contraception</span></label>
+          <label class="opt"><input type="checkbox" name="Pregnancy/hormonal status" value="None of these apply to me"><span>None of these apply to me</span></label>
+        </div><div class="err-msg">Please make a selection.</div></div>
+    </div>
+
+    <!-- ===== 5. Allergies ===== -->
+    <div class="card">
+      <div class="sec-h"><span class="sec-n">5</span><h2 class="sec-t">Allergies</h2></div>
+      <div class="f" data-group><label class="q">Have you ever had an allergic reaction to any of the following? <span class="req">*</span></label>
+        <div class="opts grid-opts" data-min="1" data-none="None of the above">
+          <label class="opt"><input type="checkbox" name="Allergies" value="Lidocaine / local anaesthetic"><span>Lidocaine / local anaesthetic</span></label>
+          <label class="opt"><input type="checkbox" name="Allergies" value="Poly-L-lactic acid (PLLA)"><span>Poly-L-lactic acid (PLLA)</span></label>
+          <label class="opt"><input type="checkbox" name="Allergies" value="Food"><span>Food</span></label>
+          <label class="opt"><input type="checkbox" name="Allergies" value="Latex"><span>Latex</span></label>
+          <label class="opt"><input type="checkbox" name="Allergies" value="Aspirin"><span>Aspirin</span></label>
+          <label class="opt"><input type="checkbox" name="Allergies" value="Penicillin / antibiotics"><span>Penicillin / antibiotics</span></label>
+          <label class="opt"><input type="checkbox" name="Allergies" value="Antiseptics / cleansers"><span>Antiseptics / cleansers</span></label>
+          <label class="opt"><input type="checkbox" name="Allergies" value="None of the above"><span>None of the above</span></label>
+        </div><div class="err-msg">Please make a selection.</div></div>
+      <div class="f"><label class="q">Please give details of any allergy ticked above</label><textarea name="Allergy details"></textarea></div>
+    </div>
+
+    <!-- ===== 6. Medications & supplements ===== -->
+    <div class="card">
+      <div class="sec-h"><span class="sec-n">6</span><h2 class="sec-t">Medications &amp; supplements</h2></div>
+      <div class="f" data-group><label class="q">Do you take any of the following? <span class="req">*</span><div class="hint">Several of these can increase bruising or bleeding.</div></label>
+        <div class="opts grid-opts" data-min="1" data-none="None of the above">
+          <label class="opt"><input type="checkbox" name="Medications" value="Aspirin"><span>Aspirin</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Blood thinners / anticoagulants"><span>Blood thinners / anticoagulants</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Anti-inflammatories (ibuprofen, naproxen)"><span>Anti-inflammatories (ibuprofen / naproxen)</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Immunosuppressant medication"><span>Immunosuppressant medication</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Steroids"><span>Steroids</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Vitamin E"><span>Vitamin E</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Fish oil / Omega 3"><span>Fish oil / Omega 3</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="Ginkgo biloba"><span>Ginkgo biloba</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="High-dose garlic / ginger / turmeric"><span>High-dose garlic / ginger / turmeric</span></label>
+          <label class="opt"><input type="checkbox" name="Medications" value="None of the above"><span>None of the above</span></label>
+        </div><div class="err-msg">Please make a selection.</div></div>
+      <div class="f"><label class="q">Please list any other medications or supplements you take</label><textarea name="Other medications"></textarea></div>
+    </div>
+
+    <!-- ===== 7. Contraindications ===== -->
+    <div class="card">
+      <div class="sec-h"><span class="sec-n">7</span><h2 class="sec-t">Contraindications</h2></div>
+      <div class="sec-d">These conditions may restrict or prohibit the use of Sculptra. Please tick any that apply.</div>
+      <div class="f" data-group><label class="q">Do you have any of the following? <span class="req">*</span></label>
+        <div class="opts grid-opts" data-min="1" data-none="None of the above">
+          <label class="opt"><input type="checkbox" name="Contraindications" value="Pregnancy or breastfeeding"><span>Pregnancy or breastfeeding</span></label>
+          <label class="opt"><input type="checkbox" name="Contraindications" value="Autoimmune or connective tissue disease"><span>Autoimmune / connective tissue disease</span></label>
+          <label class="opt"><input type="checkbox" name="Contraindications" value="Active infection or inflammation in or near the area"><span>Active infection / inflammation in the area</span></label>
+          <label class="opt"><input type="checkbox" name="Contraindications" value="History of keloid or hypertrophic scarring"><span>Keloid / hypertrophic scarring history</span></label>
+          <label class="opt"><input type="checkbox" name="Contraindications" value="History of granulomas or nodules from injectables"><span>Granuloma / nodule history</span></label>
+          <label class="opt"><input type="checkbox" name="Contraindications" value="Known allergy to poly-L-lactic acid or product components"><span>Allergy to PLLA / product components</span></label>
+          <label class="opt"><input type="checkbox" name="Contraindications" value="Permanent filler already present in the area"><span>Permanent filler already in the area</span></label>
+          <label class="opt"><input type="checkbox" name="Contraindications" value="Recent peeling, laser or ultrasound in the area"><span>Recent peel / laser / ultrasound in area</span></label>
+          <label class="opt"><input type="checkbox" name="Contraindications" value="Recent or upcoming dental work or vaccination (within 2 weeks)"><span>Recent / upcoming dental work or vaccination</span></label>
+          <label class="opt"><input type="checkbox" name="Contraindications" value="None of the above"><span>None of the above</span></label>
+        </div><div class="err-msg">Please make a selection.</div></div>
+      <div class="f"><label class="q">If you have any medical conditions, surgeries or previous treatments not listed above, please tell us here</label><textarea name="Other medical details"></textarea></div>
+    </div>
+
+    <!-- ===== 8. Health declaration ===== -->
+    <div class="card">
+      <div class="sec-h"><span class="sec-n">8</span><h2 class="sec-t">Health declaration</h2></div>
+      <div class="f" data-group><label class="q">Please confirm all of the following <span class="req">*</span><div class="hint">If any of these do not apply to you, tell your practitioner before proceeding.</div></label>
+        <div class="opts" data-all>
+          <label class="opt"><input type="checkbox" name="Health declaration" value="I am not pregnant, trying to conceive, or breastfeeding."><span>I am not pregnant, trying to conceive, or breastfeeding.</span></label>
+          <label class="opt"><input type="checkbox" name="Health declaration" value="I do not have an active infection, and I have not had (nor am due) dental work or a vaccination within about 2 weeks."><span>I do not have an active infection, and I have not had (nor am due) dental work or a vaccination within about 2 weeks.</span></label>
+          <label class="opt"><input type="checkbox" name="Health declaration" value="I have disclosed any autoimmune condition, scarring tendency or history of nodules."><span>I have disclosed any autoimmune condition, scarring tendency or history of nodules.</span></label>
+        </div><div class="err-msg">Please confirm all three (or speak to your practitioner first).</div></div>
+    </div>
+
+    <!-- ===== 9. Risks & complications ===== -->
+    <div class="card prose">
+      <div class="sec-h"><span class="sec-n">9</span><h2 class="sec-t">Risks &amp; complications</h2></div>
+      <p>No injectable treatment is entirely risk-free. Sculptra is well established and generally very safe, but the following risks may occur, and there may be unforeseen risks not listed.</p>
+      <div class="cols">
+        <div class="mini ok"><h4>Common / temporary</h4><ul>
+          <li>Swelling, bruising, redness</li><li>Tenderness &amp; mild pain</li>
+          <li>Small early lumps or bumps</li><li>Itching at injection sites</li>
+          <li>Temporary firmness in the area</li></ul></div>
+        <div class="mini avoid"><h4>Less common / serious</h4><ul>
+          <li>Granuloma (a persistent inflammatory lump)</li>
+          <li>Visible or palpable lumpiness / unevenness</li>
+          <li>Infection or abscess</li>
+          <li>Vascular occlusion (filler blocking a blood vessel) — rarer with PLLA than HA, but possible; can cause tissue damage</li>
+          <li>Nerve irritation or altered sensation</li>
+          <li>Asymmetry or under-/over-correction needing further treatment</li>
+          <li>Allergic / hypersensitivity reaction (rare)</li></ul></div>
+      </div>
+      <div class="notice warn"><h4>Delayed-onset nodules &amp; papules — the key Sculptra risk</h4>
+        The most important Sculptra-specific risk is <b>delayed-onset nodules or papules</b> — small firm lumps that can appear <b>weeks or months after treatment</b>. Most are minor and treatable when reported early. The risk is reduced by correct technique, correct dilution, and by you <b>following the massage instructions</b> (see below).</div>
+      <div class="f" data-group><div class="opts" data-min="1" data-single>
+        <label class="opt"><input type="checkbox" name="Risks acknowledgement" value="I have read, understood and accept all the risks, complications and side effects listed above, including delayed-onset nodules and papules, and still wish to proceed."><span>I have read, understood and <b>accept all the risks</b> above, <b>including delayed-onset nodules/papules</b>, and still wish to proceed.</span></label>
+      </div><div class="err-msg">Please confirm to continue.</div></div>
+    </div>
+
+    <!-- ===== 10. Massage requirement (rule of 5s) ===== -->
+    <div class="card prose">
+      <div class="sec-h"><span class="sec-n">10</span><h2 class="sec-t">Your massage commitment (rule of 5s)</h2></div>
+      <p>Massaging the treated area after Sculptra helps spread the product evenly and <b>reduces the risk of lumps and nodules</b>. The general rule is the <b>"rule of 5s"</b>:</p>
+      <div class="mini ok"><h4>The rule of 5s</h4><ul>
+        <li>Massage <b>5 times a day</b></li><li>For about <b>5 minutes</b> each time</li><li>For <b>5 days</b> after treatment</li>
+        <li>Your practitioner's exact instructions take precedence, and the <b>buttock/body protocol may differ</b></li></ul></div>
+      <div class="f" data-group><div class="opts" data-min="1" data-single>
+        <label class="opt"><input type="checkbox" name="Massage commitment" value="I understand I must massage the treated area as instructed (the rule of 5s, or as directed for my area) to help reduce the risk of nodules, and I agree to do so."><span>I understand I must <b>massage the treated area as instructed</b> (the rule of 5s, or as directed for my area) to help reduce the risk of nodules, and I agree to do so.</span></label>
+      </div><div class="err-msg">Please confirm to continue.</div></div>
+    </div>
+
+    <!-- ===== 11. Vascular occlusion & emergencies ===== -->
+    <div class="card prose">
+      <div class="sec-h"><span class="sec-n">11</span><h2 class="sec-t">Vascular occlusion &amp; emergencies</h2></div>
+      <p>A vascular occlusion — filler blocking or compressing a blood vessel — is rare with Sculptra but is a <b>medical emergency</b>. Possible signs include:</p>
+      <div class="notice warn"><ul style="margin:0;padding-left:18px">
+        <li>Severe or increasing pain out of proportion to what's expected</li><li>White skin (blanching)</li><li>Grey, blue, purple or mottled discolouration</li>
+        <li>Skin becoming cold, or blistering</li><li>Signs of infection: spreading redness/heat, pus, fever, feeling unwell</li>
+        <li>Any breathing difficulty, facial swelling or feeling very unwell (seek emergency help immediately)</li>
+      </ul></div>
+      <p>I understand that if any of these occur I must contact Layali Clinic <b>immediately</b> (07787&nbsp;708200) or, if severe, call <b>999</b> / attend A&amp;E.</p>
+      <div class="f" data-group><div class="opts" data-min="1" data-single>
+        <label class="opt"><input type="checkbox" name="Emergency understanding" value="I understand vascular occlusion, infection and serious complications are emergencies and what to do (contact the clinic; if severe, call 999 or attend A&E)."><span>I understand these are <b>emergencies</b> and what to do — contact the clinic, and if severe call <b>999</b> / attend A&amp;E.</span></label>
+      </div><div class="err-msg">Please confirm to continue.</div></div>
+    </div>
+
+    <!-- ===== 12. Clinical photography consent ===== -->
+    <div class="card prose">
+      <div class="sec-h"><span class="sec-n">12</span><h2 class="sec-t">Clinical photography consent</h2></div>
+      <p>I authorise Layali Clinic to take clinical photographs for medical documentation and to track my gradual result across the course. My identity will be protected in any scientific or educational use. If my face is not the area treated, it will not be shown. Please choose one:</p>
+      <div class="f" data-group><label class="q">I consent to my photographs being used for: <span class="req">*</span></label>
+        <div class="opts" data-min="1" data-single>
+          <label class="opt"><input type="checkbox" name="Photography consent" value="Yes — internal medical records only"><span>Yes — internal <b>medical records only</b></span></label>
+          <label class="opt"><input type="checkbox" name="Photography consent" value="Yes — medical and marketing use (social media, website)"><span>Yes — medical <b>and marketing</b> use (social media, website)</span></label>
+        </div><div class="err-msg">Please choose one.</div></div>
+    </div>
+
+    <!-- ===== 13. Payment & cancellation ===== -->
+    <div class="card prose">
+      <div class="sec-h"><span class="sec-n">13</span><h2 class="sec-t">Payment &amp; cancellation policy</h2></div>
+      <ul>
+        <li>This is an elective treatment; full payment for each session is required on the day.</li>
+        <li>A <b>non-refundable deposit</b> is required at booking to secure your appointment.</li>
+        <li>At least <b>48 hours' notice</b> is required to cancel or reschedule. Late cancellations or no-shows may result in loss of deposit or a rebooking fee.</li>
+        <li>Sculptra is a <b>course</b>; each session is charged, and pricing is confirmed at consultation.</li>
+        <li>Once treatment is administered, <b>no refunds</b> will be given, regardless of results.</li>
+        <li>Results vary from person to person and outcomes cannot be guaranteed.</li>
+      </ul>
+      <div class="f" data-group><div class="opts" data-min="1" data-single>
+        <label class="opt"><input type="checkbox" name="Payment agreement" value="I have read and agree to the payment & cancellation policy."><span>I have read and <b>agree to the payment &amp; cancellation policy</b>.</span></label>
+      </div><div class="err-msg">Please confirm to continue.</div></div>
+    </div>
+
+    <!-- ===== 14. Final consent declaration ===== -->
+    <div class="card">
+      <div class="sec-h"><span class="sec-n">14</span><h2 class="sec-t">Final consent declaration</h2></div>
+      <div class="prose" style="margin-bottom:8px"><p>I give my voluntary and informed consent to undergo Sculptra (poly-L-lactic acid) treatment, administered by a qualified practitioner at Layali Clinic. Please confirm each statement:</p></div>
+      <div class="f" data-group><label class="q">Please confirm all of the following <span class="req">*</span></label>
+        <div class="opts" data-all>
+          <label class="opt"><input type="checkbox" name="Final declaration" value="I have read, understood and agree to the procedure, risks, benefits, alternatives and side effects."><span>I have read, understood and agree to the procedure, risks, benefits, alternatives and side effects.</span></label>
+          <label class="opt"><input type="checkbox" name="Final declaration" value="I have READ the pre-care guide and will follow it before treatment."><span>I have <b>READ the pre-care guide</b> and will follow it before treatment.</span></label>
+          <label class="opt"><input type="checkbox" name="Final declaration" value="I have READ the aftercare guide, including the massage instructions, and will follow it after treatment."><span>I have <b>READ the aftercare guide</b>, including the massage instructions, and will follow it after treatment.</span></label>
+          <label class="opt"><input type="checkbox" name="Final declaration" value="I have disclosed all relevant medical conditions, medications, allergies and previous procedures, and understand withholding information may increase risk."><span>I have disclosed all relevant medical conditions, medications, allergies and previous procedures, and understand withholding information may increase risk.</span></label>
+          <label class="opt"><input type="checkbox" name="Final declaration" value="I understand results are gradual, vary, are NOT guaranteed, and that a course of multiple sessions is usually needed."><span>I understand results are <b>gradual, vary, are not guaranteed</b>, and a <b>course</b> of sessions is usually needed.</span></label>
+          <label class="opt"><input type="checkbox" name="Final declaration" value="I understand and accept the clinic's non-refundable payment and cancellation policy."><span>I understand and accept the non-refundable payment &amp; cancellation policy.</span></label>
+          <label class="opt"><input type="checkbox" name="Final declaration" value="In a medical emergency, I authorise the clinic to take appropriate action and contact emergency services if necessary."><span>In an emergency, I authorise the clinic to take appropriate action and contact emergency services.</span></label>
+          <label class="opt"><input type="checkbox" name="Final declaration" value="I have had the opportunity to ask questions, can read and understand English, and give this consent freely without coercion."><span>I've had the <b>opportunity to ask questions</b>, can read and understand English, and give this consent freely.</span></label>
+        </div><div class="err-msg">Please confirm all statements to proceed.</div></div>
+
+      <div class="f" data-group><div class="opts" data-min="1" data-single>
+        <label class="opt"><input type="checkbox" name="Data processing consent" value="I have read the Privacy Notice and consent to Layali Clinic processing my personal and health information to provide my care."><span>I have read the <a href="privacy.html" target="_blank">Privacy Notice</a> and consent to Layali Clinic processing my personal &amp; health information to provide my care.</span></label>
+      </div><div class="err-msg">Please confirm to continue.</div></div>
+
+      <div class="f"><label class="q">Your full name (print) <span class="req">*</span></label><input type="text" name="Printed name" required></div>
+      <div class="f" data-group id="sigField"><label class="q">Your signature <span class="req">*</span><div class="hint">Sign with your finger or mouse.</div></label>
+        <div class="sigwrap"><canvas class="sig"></canvas><div class="sig-base"></div><button type="button" class="sig-clear" id="sigClear">Clear</button></div>
+        <div class="err-msg">Please add your signature.</div></div>
+      <div class="f"><label class="q">Date <span class="req">*</span></label><input type="date" name="Date signed" required></div>
+    </div>
+
+    <button type="submit" class="submit">Submit my consent</button>
+    <p class="foot">A full copy of this signed form is saved to your Layali Clinic record. · <a href="privacy.html">Privacy Notice</a></p>
+  </form>
+
+  <div class="done" id="doneScreen"><div class="tick">&check;</div><h2>Thank you</h2>
+    <p>Your signed consent &amp; consultation form has been received by Layali Clinic and saved to your record. Please read your pre-care guide before your appointment, and keep your aftercare guide (with the massage instructions) for after. If anything about your health, medication or pregnancy status changes, please call us on 07787 708200.</p></div>
+  <p class="foot">Layali Clinic · 442 Lea Bridge Road, Leyton, London, E10 7DT · 07787 708200 · info.lushlips@gmail.com · <a href="privacy.html">Privacy Notice</a></p>
+</div>
+<script src="pack.js"></script>
+</body></html>
